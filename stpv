@@ -93,12 +93,8 @@ img_to_txt() {
 colorize_src() {
     if [ "$1" = "--md" ]; then
         shift
-        highlight --replace-tabs=4 --out-format=ansi \
-                  --style='pablo' --force markdown -- "$@" 2>/dev/null && return 0
         bat --color always --style plain --language markdown -- "$@" && return 0
     else
-        highlight --replace-tabs=4 --out-format=ansi \
-                  --style='pablo' --force -- "$@" 2>/dev/null && return 0
         bat --color always --style plain -- "$@" && return 0
     fi
 }
